@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Foro Preder Mobile</title>
+<meta name="viewport" content="height=device-height,width=device-width,initial-scale=1.0,maximum-scale=1.0" >
+</head>
+<body>
+  
+			
+<!--pagina de inicio-->
+<div  data-role="page" id="carpetaPublica" >
+  <div data-role="header" data-position="fixed" data-tap-toggle="false">
+    <div data-role="navbar" >
+      <ul>
+        <li style="text-align:left;padding-left:5%;padding-top:4%"><span>Foro Preder</span></li>
+      </ul>
+    </div>
+  </div>
+  <!--CONTENIDO DE PAGINA-->
+  <div data-role="content"> 
+    <!--subtitulo pagina-->
+    <ul data-role="listview" data-dividertheme="d">
+      <li data-role="list-divider">Carpeta Pública</li>
+    </ul>
+    <br />
+    <!--Set colapsable el que se compone de una busqueda por CATEGORIA--> 
+  
+        <select data-mini="true" data-native-menu="false"  name="selectCategoria" id="selectCategoria" onChange="getArchivosPublicos(); return false">
+          <option value="todos">Todos los Archivos</option>
+          <option value="manuales">Manuales</option>
+          <option value="nomas">Normas Internas</option>
+          <option value="legalidades">Legalidades</option>
+          <option value="reglamentos">Reglamentos</option>
+          <option value="libros">Libros</option>
+          <option value="procGen">Procedimientos Generales</option>
+          <option value="procEsp">Procedimientos Específicos</option>
+          <option value="instructivos">Instructivos</option>
+          <option value="formatos">Formatos</option>
+          <option value="capacitaciones">Capacitaciones</option>
+          <option value="charlas">Charlas</option>
+          <option value="boletines">Boletines-Flash</option>
+          <option value="investigaciones">Investigaciones</option>
+          <option value="matrices">Matrices-Inventarios</option>
+          <option value="politicas">Políticas</option>
+          <option value="imagenes">Imágenes</option>
+          <option value="videos">Videos</option>
+          <option value="planes">Planes-Programas</option>
+          <option value="vehiculos">Vehículos</option>
+        </select>
+    
+    <!--Set colapsable el que se compone de una busqueda por palabras clave-->
+  <br /> 
+        <ul data-mini="true" id="listaArchivos" name="listaArchivos" data-role="listview"
+     data-inset="false" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Filtra Nombre.." >
+  </ul>  
+  
+  <div id="contenido"></div>
+  </div><!--Fin Content-->
+  
+  <!--pie paginia-->
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+    <div data-role="navbar" data-iconpos="bottom">
+      <ul>
+        <li><a data-role="button" data-icon="home" href="index.html">menu</a> </li>
+        <li><a data-role="button" data-icon="delete" onClick="cerrarSesion(); return false" >cerrar sesión</a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!--Fin pagina--> 
+
+</body>
+</html>

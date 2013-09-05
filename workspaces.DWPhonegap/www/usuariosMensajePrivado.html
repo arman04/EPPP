@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Foro Preder Mobile</title>
+<meta name="viewport" content="height=device-height,width=device-width,initial-scale=1.0,maximum-scale=1.0" >
+</head>
+<body>
+
+<!--pagina de mensajes privados-->
+<div id="crearMensajePrivado" data-role="page" >
+  <div data-role="header" data-position="fixed" data-tap-toggle="false">
+    <div data-role="navbar" >
+      <ul>
+        <li  style="text-align:center; padding-left:5%;padding-top:4%"><span >Crear Mensaje - Selección usuario</span></li>
+      </ul>
+    </div>
+  </div>
+  <!--contenido pagina inicio-->
+  <div  data-role="content" >
+    <ul id="listaUsuarios" name="listaUsuarios" data-role="listview"
+     data-inset="false" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Nombre de usuario.." >
+    </ul>
+  </div>
+  <!--pie paginia de inicio-->
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+    <div data-role="navbar">
+      <ul>
+       <li><a data-role="button" href="main.html" data-icon="home" >menu </a> </li>
+       <li><a data-role="button" data-icon="delete" onClick="cerrarSesion(); return false" >cerrar sesión</a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!--fin pagina usuarios -->
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Aplic. Web de jQuery Mobile</title>
+<meta name="viewport" content="height=device-height,width=device-width,initial-scale=1.0,maximum-scale=1.0" >
+
+
+</head>
+<body>
+<!--pagina para crear tema yap-->
+<div data-role="page" id="crearTema">
+  <div data-role="header" data-position="fixed" data-tap-toggle="false">
+    <div data-role="navbar" >
+      <ul>       
+        <li style="text-align:left;padding-left:5%;padding-top:4%"><span>Crear Tema</span></li>       
+      </ul>
+    </div>
+  </div>
+  
+  <!--contenido pagina - formulario-->
+  <div data-role="content" id="formularioCrearTema"> 
+    
+    <!--formulario para crear el tema-->
+    <form enctype="multipart/form-data" action="http://www.preder.cl/foromovil/foromovil.asmx/crearTema" encoding="multipart/form-data"  method="post" name="formTema" id="formTema"  >
+    <fieldset>
+    <label for="titulo">Titulo</label>
+      <input type="text" style="font-size:13px" name="titulo" id="titulo" data-mini="true" maxlength="60"   value="" title="obligatorio"  />
+      <br />
+      <label for="mensaje">Mensaje</label>
+      <textarea cols="60" style="font-size:13px" rows="8" name="mensaje"  id="mensaje" value=""  ></textarea>
+
+      <input type="file"  data-role="button" data-icon="plus" data-theme="f" name="archivo1" id="archivo1" accept="image/*" value="Add" data-mini="true" data-clear-btn="true" />
+      <input type="file"  data-role="button" data-icon="plus" data-theme="f" name="archivo2" id="archivo2" value="Add" data-mini="true"  data-clear-btn="true" />
+      <input type="file"  data-role="button" data-icon="plus" data-theme="f" name="archivo3" id="archivo3"  value="Add" data-mini="true"  data-clear-btn="true" />
+      <input type="file"  data-role="button" data-icon="plus" data-theme="f" name="archivo4" id="archivo4"  value="Add" data-mini="true"  data-clear-btn="true" />
+      <input type="file"  data-role="button" data-icon="plus" data-theme="f" name="archivo5" id="archivo5"  value="Add" data-mini="true"  data-clear-btn="true" />
+      <progress id="progress" max="100" value="0"></progress>
+      <textarea cols="60" style="font-size:13px;display:none" rows="8" name="user" id="user" ></textarea>
+      <textarea cols="60" style="font-size:13px;display:none" rows="8" name="secId" id="secId" ></textarea>
+      <input name="botonCrearTema" type="submit"  value="Crear Tema" data-icon="check" />
+      </fieldset>
+    </form>
+    <span id="crearTemaResult" style="color:#F00;font-size:9px"></span>
+    
+  </div>
+  
+  <!--Pie de Pagina-->
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+    <div data-role="navbar" >
+      <ul>
+        <li><a data-role="button" href="main.html" data-icon="home" >menu </a> </li>
+        <li><a data-role="button" data-icon="delete" onClick="cerrarSesion(); return false" >cerrar sesión</a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>

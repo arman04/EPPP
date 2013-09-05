@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Foro Preder Mobile</title>
+<meta name="viewport" content="height=device-height,width=device-width,initial-scale=1.0,maximum-scale=1.0" >
+<link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="jquery-mobile/jquery.mobile-1.3.1.min.css">
+<link rel="stylesheet" type="text/css" href="jquery-mobile/jquery.mobile.simpledialog.min.css">
+<link rel="stylesheet" type="text/css" href="estilos/errorFormulario.css">
+<script src="../phonegap.js"></script>
+<script src="jquery-mobile/jquery-1.9.1.min.js"></script>
+
+<script src="Scripts/postFormHandler.js" type="text/javascript"></script>
+<script type="text/javascript" src="Scripts/logIn.js"></script>
+<script type="text/javascript" src="Scripts/formularioRegistro.js"></script>
+<script type="text/javascript" src="Scripts/formValidate.js"></script>
+<script type="text/javascript" src="Scripts/jquery.Rut.min.js"></script>
+<script type="text/javascript" src="Scripts/alertasUsuario.js"></script>
+
+<script src="jquery-mobile/jquery.mobile-1.3.1.min.js"></script>
+<script src="jquery-mobile/jquery.mobile.simpledialog2.min.js"></script>
+</head>
+<body>
+
+<!--pagina de inicio-->
+<div  data-role="page" id="startPage" >
+  <div data-role="header" data-position="fixed" data-tap-toggle="false">
+    <div data-role="navbar" >
+      <ul>
+        <li style="text-align:left;padding-left:5%;padding-top:4%"><span>Foro Preder</span></li>
+      </ul>
+    </div>
+  </div>
+  <!--contenido pagina inicio-->
+  <div  data-role="content" > 
+  <a data-role="button" href="#regPage" data-theme="a" data-icon="plus" data-iconpos="bottom">Registrate</a>
+  
+    <div data-role="collapsible-set" data-theme="a" data-icon="check" data-iconpos="bottom" data-transition="pop">
+      <div data-role="collapsible" >
+        <h3>Ingresa</h3>
+        <form enctype="multipart/form-data" 
+action="http://www.preder.cl/foromovil/foromovil.asmx/validarLogIn" 
+encoding="multipart/form-data"  method="post" name="formlogIn" id="formlogIn" >
+          <label for="username">Nombre de Usuario</label>
+          <input type="text" maxlength="40"  id="username" name="username"  />
+          <label for="passwordinput">Contraseña:</label>
+          <input type="password" name="passwordinput" id="passwordinput" value=""  />
+          <input type="submit" value="Ingresar" id="logInButton" name="logInButton" />
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!--pie paginia de inicio-->
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+    <div data-role="navbar" >
+      <ul>
+        <li style="text-align:center; font-size:12px"><span>Powered by Preder</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!--Fin pagina de Logueo--> 
+
+<!--PAGINA CON FORMULARIO DE REGISTRO-->
+<div data-role="page" id="regPage">
+  <div data-role="header" data-position="fixed" data-tap-toggle="false">
+    <div data-role="navbar" >
+      <ul>
+        <li style="text-align:left;padding-left:5%;padding-top:4%"><span>Foro Preder</span></li>
+      </ul>
+    </div>
+  </div>
+  <!--contenido pagina inicio-->
+  <div  data-role="content" >
+    <div data-role="fieldcontain" data-mini="true">
+      <select data-mini="true" data-native-menu="false"  name="selectUser" id="selectUser" onChange="mostrarFormularioRegistro(); return false">
+        <option>Esconje tipo de Usuario</option>
+        <option value="alumno">Alumno / Práctica / Memorista</option>
+        <option value="experto">Experto en Prevención</option>
+        <option value="cphs">Comité Paritario de Higiene y Seguridad</option>
+        <option value="empresa">Empresa</option>
+      </select>
+    </div>
+    
+    <!--FORMULARIO DE REGISTRO-->
+    <form enctype="multipart/form-data" 
+action="http://www.preder.cl/foromovil/foromovil.asmx/registrarUsuario" 
+encoding="multipart/form-data"  method="post"  name="formRegistro" id="formRegistro" >
+      
+      <!--input oculto para insertar el valor escogido en la seleccion de usuario-->
+      <input type="hidden" name="tipoUsuario" id="tipoUsuario" />
+      
+      <!--Datos genericos-->
+      <div id="datosGenericos" data-role="fieldcontain" style="display:none">
+        <label data-mini="true" for="rut">Rut</label>
+        <input data-mini="true" type="text" maxlength="10" minlength='9' title="formato inválido"  id="rut" placeholder="ej: 12345678-9" name="rut" />
+        <label data-mini="true" for="nombre">Nombre</label>
+        <input data-mini="true" type="text" placeholder="tu nombre" name="nombre" id="nombre" title="solo letras" />
+        <label data-mini="true" for="email">Email</label>
+        <input data-mini="true" type="email" name="email" placeholder="ejemplo@preder.cl" id="email"  value=""  />
+        <label data-mini="true" for="username">Nombre de Usuario</label>
+        <input data-mini="true" type="text" name="username"  id="username" value=""  />
+        <label data-mini="true" for="password">Contraseña</label>
+        <input data-mini="true" type="password" name="password" id="password" value=""  />
+        <label data-mini="true" for="password2">Repita Contraseña</label>
+        <input data-mini="true" type="password" name="password2" id="password2" value=""  />
+        <label data-mini="true" for="avatar">Foto de Usuario</label>
+        <input data-mini="true" type="file" name="avatar" id="avatar" value=""  />
+      </div>
+      <!--Fin datos genericos--> 
+      
+      <!--Datos Experto--> 
+      
+      <!--Servicio Nacional de Salud-->
+      <div id="datosExperto" data-role="fieldcontain" style="display:none">
+        <input type="checkbox" name="sns" id="sns" class="custom" data-mini="true" />
+        <label for="sns">Servicio Nacional de Salud</label>
+        <div id="datosSns">
+          <label data-mini="true" for="licSns">N° Licencia S.N.S</label>
+          <input data-mini="true" type="text" name="licSns" id="licSns" value=""  />
+          <label  id="licSnsError" name="licSnsError" for="licSns" style="color:#F00; font-size:10px">Campo obligatorio</label>
+          <label data-mini="true" for="resSns">N° Resolución S.N.S</label>
+          <input data-mini="true" type="text" name="resSns" id="resSns" value=""  />
+          <label id="resSnsError" name="resSnsError" for="resSns"style="color:#F00; font-size:10px" >Campo obligatorio</label>
+        </div>
+        
+        <!--Sernageomin-->
+        
+        <input type="checkbox" name="sngm" id="sngm" class="custom" data-mini="true" />
+        <label for="sngm">Sernageomín</label>
+        <div id="datosSngm">
+          <label data-mini="true" for="licSngm">N° Licencia Sernageomín</label>
+          <input data-mini="true" type="text" name="licSngm" id="licSngm" value=""  />
+          <label id="licSngmError" name="licSngmError" for="licSngm" style="color:#F00; font-size:10px">Campo obligatorio</label>
+          <label data-mini="true" for="resSngm">N° Resolución Sernageomín</label>
+          <input data-mini="true" type="text" name="resSngm" id="resSngm" value=""  />
+          <label id="resSngmError" name="resSngmError" for="resSngm" style="color:#F00; font-size:10px" >Campo obligatorio</label>
+        </div>
+        <label for="curriculum">Curriculum</label>
+        <input data-mini="true" type="file" name="curriculum" id="curriculum" value=""  />
+      </div>
+      <!--Fin datos Experto--> 
+      
+      <!--Datos Comite Paritario-->
+      <div id="datosCphs" data-role="fieldcontain" style="display:none">
+        <label for="empresaCphs">Empresa</label>
+        <input type="text" name="empresaCphs" id="empresaCphs" value=""/>
+        <label id="empresaCphsError" name="empresaCphsError" for="empresaCphs" style="color:#F00; font-size:10px" >Campo obligatorio</label>
+      </div>
+      <!--Fin Datos Comite Paritario--> 
+      
+      <!--Datos Empresa-->
+      <div id="datosEmpresa" data-role="fieldcontain" style="display:none">
+        <label for="userEncargado">Usuario Encargado</label>
+        <input type="text" name="userEncargado" id="userEncargado" value=""/>
+        <label id="userEncargadoError" name="userEncargadoError" for="userEncargado" style="color:#F00; font-size:10px" >Campo obligatorio</label>
+        <label for="ciudad">Ciudad</label>
+        <input type="text" name="ciudad" id="ciudad" value=""/>
+        <label id="ciudadError" name="ciudadError" for="ciudad" style="color:#F00; font-size:10px" >Campo obligatorio</label>
+      </div>
+      <!--Fin Datos Empresa--> 
+      
+      <!--El boton aparece como hidden, luego al escoger usuario pasa a ser submit-->
+      <input  type="hidden" value="Aceptar" id="regButton" name="regButton" />
+    </form>
+  </div>
+  
+  <!--pie paginia-->
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+    <div data-role="navbar" data-iconpos="bottom">
+      <ul>
+        <li><a data-role="button" data-icon="home" href="#startPage"></a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+</html>

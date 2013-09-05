@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Foro Preder Mobile</title>
+<meta name="viewport" content="height=device-height,width=device-width,initial-scale=1.0,maximum-scale=1.0" >
+</head>
+<body>
+
+<!--pagina de mensajes privados-->
+<div id="formularioMensajePrivado" data-role="page" >
+  <div data-role="header" data-position="fixed" data-tap-toggle="false">
+    <div data-role="navbar" >
+      <ul>
+        <li style="text-align:center; padding-left:5%;padding-top:4%"><span >Redactando Mensaje</span></li>
+      </ul>
+    </div>
+  </div>
+  <!--contenido pagina inicio-->
+  <div  data-role="content" > <br />
+    <form enctype="multipart/form-data" 
+action="http://www.preder.cl/foromovil/foromovil.asmx/crearMensajePrivado" 
+encoding="multipart/form-data"  method="post" name="formMensajePrivado" id="formMensajePrivado" >
+      <label id="infoMensaje" ></label>
+      <br />
+      <br />
+      <label for="asuntoMensaje">Asunto</label>
+      <input type="text" maxlength="40"  id="asuntoMensaje" name="asuntoMensaje"  />
+      <br />
+      <label for="cuerpoMensaje">Mensaje</label>
+      <textarea cols="60"  rows="8"  name="cuerpoMensaje"  id="cuerpoMensaje"   ></textarea>
+      <br />
+      <input type="submit" value="enviar mensaje" />
+      <input type="hidden" id="userLog" name="userLog" />
+      <input type="hidden" id="userDestino" name="userDestino" />
+    </form>
+  </div>
+  <!--pie paginia de inicio-->
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+    <div data-role="navbar">
+      <ul>
+        <li><a data-role="button" href="main.html" data-icon="home" >menu </a> </li>
+        <li><a data-role="button" data-icon="delete" onClick="cerrarSesion(); return false">cerrar sesión</a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+</html>

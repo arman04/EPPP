@@ -1,0 +1,38 @@
+<!-- Página de inicio del sistema, que redirecciona a iniciarse a inicio.html
+en caso de que en localStorage no existan datos de usuario, en caso 
+de haberlos redirecciona directamente a main.html, donde se encuentra el 
+menu principal-->
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<title>Foro Preder Mobile</title>
+<meta name="viewport" content="height=device-height,width=device-width,initial-scale=1.0,maximum-scale=1.0" >
+<link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="jquery-mobile/jquery.mobile-1.3.1.min.css">
+
+<link rel="stylesheet" type="text/css" href="jquery-mobile/jquery.mobile.structure-1.3.1.min.css" />
+
+<script src="../phonegap.js"></script>
+
+<script src="jquery-mobile/jquery-1.9.1.min.js"></script>
+<script src="jquery-mobile/jquery.mobile-1.3.1.min.js"></script>
+<title>tittle</title>
+</head>
+<body>
+<script type="text/javascript">
+	$(document).on('pageshow',function(event,ui){
+		var username = window.localStorage.getItem('username');		
+	   // si existe un usuario se carga la pagina	
+	   if(username != null && username != ""){
+			window.location='./main.html';
+	   } else {
+			window.location = './inicio.html';
+	   
+	   }
+	});
+</script>
+</body>
+</html>

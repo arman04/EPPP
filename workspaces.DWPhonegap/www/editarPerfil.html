@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Foro Preder Mobile</title>
+<meta name="viewport" content="height=device-height,width=device-width,initial-scale=1.0,maximum-scale=1.0" >
+</head>
+<body>
+
+<!--PAGINA CON FORMULARIO DE EDICION DE PERFIL-->
+<div data-role="page" id="editPage">
+  <div data-role="header" data-position="fixed" data-tap-toggle="false">
+    <div data-role="navbar" >
+      <ul>
+        <li style="text-align:left;padding-left:5%;padding-top:4%"><span>Foro Preder</span></li>
+      </ul>
+    </div>
+  </div>
+  <!--contenido pagina inicio-->
+  <div  data-role="content" >
+    <ul data-role="listview" data-dividertheme="d">
+	    <li data-role="list-divider">Editar Perfil</li>    
+    </ul>
+    <br />
+    <div data-role="fieldcontain">
+    <img id="avatar" />
+    </div>
+    
+    <!--FORMULARIO DE PERFIL-->
+    <form enctype="multipart/form-data" 
+action="http://www.preder.cl/foromovil/foromovil.asmx/editarPerfilUsuario" 
+encoding="multipart/form-data"  method="post"  name="formularioPerfil" id="formularioPerfil" >
+
+      <label data-mini="true" for="avatar">Nuevo Avatar</label>
+      <input data-mini="true" type="file" name="avatar" id="avatar" placeholder:"opcional" value=""  />
+            
+        <input type="hidden" id="usuario" name="usuario"></label>                
+        <label data-mini="true" for="nombre">Nombre Real</label>
+        <input data-mini="true" type="text"  name="nombre" id="nombre" />
+        
+        <label data-mini="true" for="email">Email</label>
+        <input data-mini="true" type="email" name="email" id="email"  value=""  />      
+      
+      <input  type="submit" value="Aceptar" />    </form>
+  </div>
+  
+  <!--pie paginia-->
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+    <div data-role="navbar" data-iconpos="bottom">
+      <ul>
+        <li><a data-role="button" href="main.html" data-icon="home" >menu </a> </li>
+        <li><a data-role="button" data-icon="delete" onClick="cerrarSesion(); return false" >cerrar sesión</a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+</html>
